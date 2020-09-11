@@ -1,16 +1,11 @@
-## HOPE:
-
-#### Authors: 
+## HOPE: Hierarchical micrObial functions Prediction by graph aggregated Embedding
 
 ### Overview
 
 This directory contains code necessary to run the HOPE algorithm.
-HOPE is ....
-See our [paper]() for details on the algorithm.
+HOPE (Hierarchical micrObial functions Prediction by graph aggregated Embedding) is a novel method that incorporates k-mer compositions of microbial sequences and topology of microbial networks to predict microbial functions. See our [paper]() for details on the algorithm.
 
-
-
-If you make use of this code or the GraphSage algorithm in your work, please cite the following paper:
+If you make use of this code or the HOPE algorithm in your work, please cite the following paper:
 
 
 ### Requirements
@@ -49,8 +44,8 @@ directory. If you just want to run the model, there are constructed graph file i
 
 #### Train and eval model
 
-
-
+The experimental dataset is divided into three distinct parts, training set, validation set, and test set. We split 20% of all OTUs into a validation set and design an 8-fold cross validation on the remaining 80% of all OTUs. The cross validation is applied to learn the appropriate parameters in the weight matrices and select the appropriate hyperparameters. 
+To avoid over fitting, dropout is set as = 0.4 and is adopted. All of the experiments use rectified linear units (ReLU) as activation functions. The experiments are run on a single machine with 4 NVIDIA GeForce GTX1080 TI with CUDA Version 10.2, Intel(R) Xeon(R) CPU (E5-2620 v4 @ 2.10GHz) and 128Gb of RAM.
 
 
 #### Model variants
@@ -70,9 +65,7 @@ The supervised model will output F1 scores, while the unsupervised model will tr
 The unsupervised embeddings will be stored in a numpy formated file named val.npy with val.txt specifying the order of embeddings as a per-line list of node ids.
 Note that the full log outputs and stored embeddings can be 5-10Gb in size (on the full data when running with the unsupervised variant).
 
+### Acknowledgements
 
-#### Acknowledgements
-
-The original version of this code base was originally forked from https://github.com/tkipf/gcn/, and we owe many thanks to Thomas Kipf for making his code available.
-We also thank Yuanfang Li and Xin Li who contributed to a course project that was based on this work.
+The original version of this code base was originally forked from https://github.com/williamleif/GraphSAGE, and we owe many thanks to  William L. Hamilton for making his code available.
 Please see the [paper](https://arxiv.org/pdf/1706.02216.pdf) for funding details and additional (non-code related) acknowledgements.
